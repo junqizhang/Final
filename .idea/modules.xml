@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Final(Junqi）.iml" filepath="$PROJECT_DIR$/Final(Junqi）.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cs328-a3-tua.iml" filepath="$PROJECT_DIR$/cs328-a3-tua.iml" />
     </modules>
   </component>
 </project>

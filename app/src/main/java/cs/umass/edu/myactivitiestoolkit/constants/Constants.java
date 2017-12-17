@@ -9,6 +9,7 @@ package cs.umass.edu.myactivitiestoolkit.constants;
  */
 public class Constants {
 
+    public static String LUX="";
     /** Intent actions used to communicate between the main UI and the sensor service
      * @see android.content.Intent */
     public interface ACTION {

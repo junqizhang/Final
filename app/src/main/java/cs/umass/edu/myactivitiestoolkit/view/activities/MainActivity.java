@@ -248,7 +248,8 @@ public class MainActivity extends AppCompatActivity {
         public void onSensorChanged(SensorEvent event) {
             float x = event.values[0];
 //            lux=new ArrayList();
-            textView.setText(x+"");
+//            textView.setText(x+"");
+            Constants.LUX=x+"";
 //            textLight.setText((int)x + " lux");
         }
     };

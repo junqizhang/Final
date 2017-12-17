@@ -51,6 +51,7 @@ public class AudioFragment extends Fragment {
     private static ArrayList box=new ArrayList();
     private TextView txtSpeaker;
     private TextView textView;
+    private TextView textView1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -71,14 +72,19 @@ public class AudioFragment extends Fragment {
                 if (enable){
                     requestPermissions();
 //                    textView.setText(lux);
+//                    spin();
                 } else {
                     serviceManager.stopSensorService(AudioService.class);
                 }
             }
         });
-        imgSpectrogram = (ImageView) rootView.findViewById(R.id.imgSpectrogram);
+//        imgSpectrogram = (ImageView) rootView.findViewById(R.id.imgSpectrogram);
         txtSpeaker = (TextView) rootView.findViewById(R.id.txtSpeaker);
-        textView =(TextView)rootView.findViewById(R.id.textView);
+        textView =(TextView)rootView.findViewById(R.id.text1);
+        textView1 =(TextView)rootView.findViewById(R.id.textView);
+//        textView1.setText();
+//        textView.setText(Constants.LUX);
+//        spin();
         return rootView;
     }
 
@@ -111,6 +117,7 @@ public class AudioFragment extends Fragment {
         filter.addAction(Constants.ACTION.BROADCAST_SPECTROGRAM);
         filter.addAction(Constants.ACTION.BROADCAST_SPEAKER);
         broadcastManager.registerReceiver(receiver, filter);
+//        spin();
     }
 
     /**
@@ -153,6 +160,14 @@ public class AudioFragment extends Fragment {
         onPermissionGranted();
     }
 
+    public void spin(){
+        for(;;){
+            try{
+            Thread.sleep(100);
+            textView.setText(Constants.LUX);
+            }catch (Exception e){}
+        }
+    }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
@@ -217,10 +232,20 @@ public class AudioFragment extends Fragment {
                         @Override
                         public void run() {
                             int tobeput=0;
+                            double lux=0;
                                if(!speaker.equals("None")){
-//                                   tobeput =Integer.parseInt(speaker);
-                                   txtSpeaker.setText(speaker);
+                                   String a=speaker;
+                                   tobeput =Integer.parseInt(a);
+                                   lux=Double.parseDouble(Constants.LUX);
+                                   txtSpeaker.setText("The audio factor is:"+tobeput+"");
+                                   textView.setText("The LUX factor is: "+Constants.LUX);
+
 //                                   box.add(speaker);
+                                   if((tobeput*300+lux)>1000){
+                                       textView1.setText("Bad");
+                                   }else{
+                                       textView1.setText("Quite Good!");
+                                   }
                                }else {txtSpeaker.setText("0");
 //                                   box.add(0);
                                }

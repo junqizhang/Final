@@ -241,10 +241,14 @@ public class AudioFragment extends Fragment {
                                    textView.setText("The LUX factor is: "+Constants.LUX);
 
 //                                   box.add(speaker);
-                                   if((tobeput*300+lux)>1000){
-                                       textView1.setText("Bad");
+                                   if((tobeput*300+lux)<800){
+                                       textView1.setText("Very Good!");
+                                   }else if((tobeput*300+lux) < 1600){
+                                       textView1.setText("Good!");
+                                   }else if((tobeput*300+lux) < 2400){
+                                       textView1.setText("Bad!");
                                    }else{
-                                       textView1.setText("Quite Good!");
+                                       textView1.setText("Very Bad!");
                                    }
                                }else {txtSpeaker.setText("0");
 //                                   box.add(0);
